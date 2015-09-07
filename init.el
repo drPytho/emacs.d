@@ -43,42 +43,30 @@
 ;; Add in your own as you wish:
 (defvar drPytho/packages
   '(magit                      ;Git for emacs
-    ac-slime
-    auto-complete
-    autopair
-    clojure-mode
-    clojure-test-mode
-    coffee-mode
-    csharp-mode
-    deft
-    erlang
-    feature-mode
-    flycheck
-    gist
-    go-mode
-    graphviz-dot-mode
-    haml-mode
-    haskell-mode
-    htmlize
-    magit
-    markdown-mode
-    marmalade
-    nodejs-repl
-    nrepl
-    o-blog
-    org
-    paredit
-    php-mode
-    puppet-mode
-    restclient
-    rvm
-    scala-mode
-    smex
-    sml-mode
-    solarized-theme
-    web-mode
-    writegood-mode
-    yaml-mode
+    ac-slime                   ;Source for AC vv 
+    auto-complete              ;Auto complete from dicktionary
+    autopair                   ;()[]{}
+    clojure-mode               ;
+    clojure-test-mode          ;
+    deft                       ;Folder searching
+    feature-mode               ;Some weird testing... For future filip
+    flycheck                   ;Syntax checking
+    gist                       ;Handeling your gists on github
+    go-mode                    ;For golang
+    graphviz-dot-mode          ;Check on this in the future
+    haml-mode                  ;HTML major mode
+    htmlize                    ;Weird.. Exports X to html in a buffer
+    markdown-mode              ;MD
+    marmalade                  ;Extra gue for marmalade
+    nodejs-repl                ;The node.js repl
+    nrepl                      ;A repl
+    ;o-blog                    ;For blogposts
+    org                        ;Org-mode
+    php-mode                   ;PHP goodness
+    restclient                 ;Used to test rest clients
+    smex                       ;Good...
+    web-mode                   ;HTML, scripts and templates
+    writegood-mode             ;Hepls to write academic texts
     exec-path-from-shell)      ;Load enviorment vars for Mac OSX fails. 
 "Packages to install")
 
@@ -105,6 +93,20 @@
 ;; Settings
 ;;;;
 
+;; No cursor blinking, it's distracting
+(blink-cursor-mode 0)
+
+;; Show line numbers
+(global-linum-mode)
+
+;; yay rainbows! Color brackets based on depth
+(global-rainbow-delimiters-mode t)
+
+;; Autosave files - I use git so this is good. Read a bit more about it though
+(setq auto-save-default t)
+
+;; Highlight current line
+(global-hl-line-mode 1)
 
 ;; Set meta to be cmd instead of alt
 (setq mac-option-modifier nil
@@ -186,9 +188,24 @@
   (when (file-directory-p project)
     (add-to-list 'load-path project)))
 
+;; Column number mode
+(setq column-number-mode t)
+
+;; NO TEMP FILES
+(setq backup-directory-alist `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
+
 ;;;;
 ;; Misc Cust Keymaps
 ;;;;
+
+
+;; Interactive search key bindings. By default, C-s runs
+;; isearch-forward, so this swaps the bindings.
+(global-set-key (kbd "C-s") 'isearch-forward-regexp)
+(global-set-key (kbd "C-r") 'isearch-backward-regexp)
+(global-set-key (kbd "C-M-s") 'isearch-forward)
+(global-set-key (kbd "C-M-r") 'isearch-backward)
 
 (global-set-key (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "C-;") 'comment-or-uncomment-region)
@@ -202,6 +219,9 @@
 ;; ORG mode
 ;;;;
 
+;; http://aaronbedra.com/emacs.d/#org-mode
+;; ^^ for information about org settings
+
 (setq org-log-done t
       org-todo-keywords '((sequence "TODO" "INPROGRESS" "DONE"))
       org-todo-keyword-faces '(("INPROGRESS" . (:foreground "blue" :weight bold))))
@@ -212,6 +232,106 @@
           (lambda ()
             (writegood-mode)))
 
+(require 'org)
+
+
+;;;;
+;; Utils
+;;;;
+
+;; Sets up exec-path-from shell
+;; https://github.com/purcell/exec-path-from-shell
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize)
+  (exec-path-from-shell-copy-envs
+   '("PATH")))
+
+
+;; When you visit a file, point goes to the last place where it
+;; was when you previously visited the same file.
+;; http://www.emacswiki.org/emacs/SavePlace
+(require 'saveplace)
+(setq-default save-place t)
+;; keep track of saved places in ~/.emacs.d/places
+(setq save-place-file (expand-file-name "places" user-emacs-directory))
+
+
+;; Autopair brackets
+(require 'autopair)
+
+;; Power lisp
+(setq lisp-modes '(lisp-mode
+                   emacs-lisp-mode
+                   common-lisp-mode
+                   scheme-mode
+                   clojure-mode))
+
+(defvar lisp-power-map (make-keymap))
+(define-minor-mode lisp-power-mode "Fix keybindings; add power."
+  :lighter " (power)"
+  :keymap lisp-power-map
+  (paredit-mode t))
+(define-key lisp-power-map [delete] 'paredit-forward-delete)
+(define-key lisp-power-map [backspace] 'paredit-backward-delete)
+
+(defun drPytho/engage-lisp-power ()
+  (lisp-power-mode t))
+
+(dolist (mode lisp-modes)
+  (add-hook (intern (format "%s-hook" mode))
+            #'drPytho/engage-lisp-power))
+
+(setq inferior-lisp-program "clisp")
+(setq scheme-program-name "racket")
+
+;; Auto complete
+(require 'auto-complete-config)
+(ac-config-default)
+
+;; Indentation & buffer cleanup
+(defun untabify-buffer ()
+  (interactive)
+  (untabify (point-min) (point-max)))
+
+(defun indent-buffer ()
+  (interactive)
+  (indent-region (point-min) (point-max)))
+
+(defun cleanup-buffer ()
+  "Perform a bunch of operations on the whitespace content of a buffer."
+  (interactive)
+  (indent-buffer)
+  (untabify-buffer)
+  (delete-trailing-whitespace))
+
+(defun cleanup-region (beg end)
+  "Remove tmux artifacts from region."
+  (interactive "r")
+  (dolist (re '("\\\\│\·*\n" "\W*│\·*"))
+    (replace-regexp re "" nil beg end)))
+
+(global-set-key (kbd "C-x M-t") 'cleanup-region)
+(global-set-key (kbd "C-c n") 'cleanup-buffer)
+
+(setq-default show-trailing-whitespace t)
+
+;; Flyspell
+(setq flyspell-issue-welcome-flag nil)
+(if (eq system-type 'darwin)
+    (setq-default ispell-program-name "/usr/local/bin/aspell")
+  (setq-default ispell-program-name "/usr/bin/aspell"))
+(setq-default ispell-list-command "list")
+
+;; Smex
+(setq smex-save-file (expand-file-name ".smex-items" user-emacs-directory))
+(smex-initialize)
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+
+;; Ido
+(ido-mode t)
+(setq ido-enable-flex-matching t
+      ido-use-virtual-buffers t)
 
 
 ;;;;
@@ -222,29 +342,17 @@
 ;; below, Emacs knows where to look for the corresponding file.
 (add-to-list 'load-path "~/.emacs.d/customizations")
 
-;; Sets up exec-path-from-shell so that Emacs will use the correct
-;; environment variables
-(load "shell-integration.el")
 
-;; These customizations make it easier for you to navigate files,
-;; switch buffers, and choose options from the minibuffer.
-(load "navigation.el")
+;;;;
+;; Theme
+;;;;
+;; Color Themes
+;; Read http://batsov.com/articles/2012/02/19/color-theming-in-emacs-reloaded/
+;; for a great explanation of emacs color themes.
+;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Custom-Themes.html
+;; for a more technical explanation.
+(add-to-list 'custom-theme-load-path (expand-file-name "themes" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "themes" user-emacs-directory))
+(load-theme 'tomorrow-night t)
 
-;; These customizations change the way emacs looks and disable/enable
-;; some user interface elements
-(load "ui.el")
 
-;; These customizations make editing a bit nicer.
-(load "editing.el")
-
-;; Hard-to-categorize customizations
-(load "misc.el")
-
-;; For editing lisps
-(load "elisp-editing.el")
-
-;; Langauage-specific
-(load "setup-clojure.el")
-(load "setup-js.el")
-
-(load "golang.el")
