@@ -1,0 +1,110 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/Users/filip/workspace/node/Gameserver/" . "models/")
+ ("/Users/filip/workspace/node/RISK/web-server/" . "routes/")
+ ("/Users/filip/workspace/node/RISK/" . "web-server/")
+ ("/Users/filip/workspace/node/" . "Gameserver/")
+ ("/Users/filip/Documents/Arduino/libraries/Sha/examples/" . "sha256test/")
+ ("/Users/filip/Documents/Arduino/libraries/Sha/" . "examples/")
+ ("/Users/filip/.emacs.d/gitmods/" . "go-mode.el/")
+ ("/Users/filip/Documents/Arduino/libraries/" . "Sha/")
+ ("/Users/filip/Documents/Arduino/" . "libraries/")
+ ("/Users/filip/Documents/" . "Arduino/")
+ ("/Users/filip/workspace/" . "node/")
+ ("/Users/" . "filip/")
+ ("/" . "Users/")
+ ("/Users/filip/.emacs.d/" . "customizations/")
+ ("/Users/filip/" . "workspace/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/Users/filip/workspace/node/Gameserver/"
+ "/Users/filip/workspace/node/Gameserver/models/"
+ "/Users/filip/workspace/node/Gameserver/routes/"
+ "/Users/filip/workspace/node/RISK/web-server/"
+ "/Users/filip/workspace/node/RISK/web-server/routes/"
+ "/Users/filip/workspace/node/RISK/models/"
+ "/Users/filip/workspace/ccpp/"
+ "/Users/filip/Documents/Arduino/libraries/Sha/examples/sha256test/"
+ "/Users/filip/Documents/Arduino/libraries/Sha/"
+ "/Users/filip/Documents/Arduino/libraries/PassworgLibs/"
+ "/Users/filip/.emacs.d/customizations/"
+ "/Users/filip/workspace/golang/gotest/"
+ "/Users/filip/.emacs.d/"
+ "/Users/filip/workspace/golang/"
+ "/Users/filip/workspace/ccpp/xbeeArduinoWC/"
+ "/Users/filip/.lein/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "README.md"
+ "gameState.js"
+ "user.js"
+ "config.js"
+ "app.js"
+ "config.json"
+ "account.js"
+ "LICENSE.md"
+ ".gitignore"
+ "gulpfile.js"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/Users/filip/workspace/node/Gameserver/models/" (21989 62471 0 0) "user.js" "gameState.js" "../" "./")
+
+ ("/Users/filip/workspace/node/Gameserver/" (21989 60766 0 0) "routes/" "README.md" "package.json" "node_modules/" "models/" "logs/" "LICENSE.md" "gulpfile.js" "config.js" "app.js" ".gitignore" ".git/" "../" "./")
+
+ ("/Users/filip/workspace/node/" (21989 46558 0 0) "RISK/" "Gameserver/" "../" "./")
+
+ ("/Users/filip/workspace/node/RISK/web-server/routes/" (21879 19895 0 0) "account.js" "../" "./")
+
+ ("/Users/filip/workspace/node/RISK/web-server/" (21879 19827 0 0) "web-server.js" "routes/" "public/" "jwt-auth.js" "../" "./")
+
+ ("/Users/filip/workspace/node/RISK/models/" (21878 50877 0 0) "user-model.js" "message-model.js" "game-model.js" "chat-model.js" "../" "./")
+
+ ("/Users/filip/workspace/node/RISK/" (21974 61221 0 0) "web-server/" "server-info.json" "README.md" "package.json" "node_modules/" "models/" "log/" "LICENSE" "Gruntfile.js" "game-server/" "chat-server/" "bower.json" ".sass-cache/" ".gitignore" ".gitattributes" ".git/" ".editorconfig" ".bowerrc" "../" "./")
+
+ ("/Users/filip/workspace/ccpp/" (21984 44932 0 0) "xbeeArduinoWC/" "triangle/" "test-snippets/" "sha256.c" "Rawr/" "psql-c/" "proxy/" "pi-controller/" "NewTestFolder/" "gtk-test/" "glfw_test/" ".DS_Store" "../" "./")
+
+ ("/Users/filip/workspace/" (21984 44932 0 0) "tst.txt" "test_file.txt" "php/" "NotSure/" "node/" "newFile.txt" "material/" "javascript/" "java/" "html/" "haskell/" "gui/" "gtk-mac-test/" "golang/" "gnu-tools/" "depot_tools/" "clojure/" "ccpp/" "atom/" "arduino/" "android/" "2.5D_Engien/" ".test_file.txt.un~" ".DS_Store" "../" "./")
+
+ ("/Users/filip/Documents/Arduino/libraries/PassworgLibs/" (21977 46340 0 0) "renderObject.h" "Align.h" "../" "./")
+
+ ("/Users/filip/Documents/Arduino/libraries/Sha/examples/sha256test/" (21984 20446 0 0) "sha256test.pde" "#sha256test.pde#" "../" "./")
+
+ ("/Users/filip/Documents/Arduino/libraries/Sha/examples/" (21984 20275 0 0) "sha256test/" "sha1test/" "hmacsha256test/" "../" "./")
+
+ ("/Users/filip/Documents/Arduino/libraries/Sha/" (21984 20275 0 0) "sha256.h" "sha256.cpp" "sha1.h" "sha1.cpp" "readme.txt" "keywords.txt" "examples/" "../" "./")
+
+ ("/Users/filip/Documents/Arduino/libraries/" (21984 20298 0 0) "Sha/" "readme.txt" "PassworgLibs/" ".DS_Store" "../" "./")
+
+ ("/Users/filip/" (21984 20428 0 0) "workspace/" "VirtualBox VMs/" "untitled.txt" "Untitled.ipynb" "tmp/" "Source/" "sda-0.log.0.lck" "sda-0.log.0" "Public/" "Pictures/" "Music/" "Movies/" "MEGAsync Downloads/" "MEGAsync/" "luhn.c" "logga.svg" "Library/" "fonts/" "Downloads/" "dotfiles/" "dot3files/" "Documents/" "Desktop/" "bin/" "AutoPlane/" "Applications/" ".zshrc" ".zsh_history" ".zsh-update" ".zsh/" ".zcompdump-Filip’s MacBook Air-5.0.7" ".zcompdump-Filip’s MacBook Air-5.0.5" ".Xauthority" ".WebStorm9/" ".WebIde80/" ".vimrc" ".viminfo" ".vim/" ".vagrant.d/" ".v8flags.3.28.73.filip.json" ".Trash/" ".tmux.conf" ".ssh/" ".Scilab/" ".rnd" ".pyvim/" ".PyCharm40/" ".psql_history" ".oracle_jre_usage/" ".oh-my-zsh/" ".octave_hist" ".npm/" ".node-gyp/" ".mongorc.js" ".m2/" ".local/" ".lein/" ".jssc/" ".ipython/" ".ipynb_checkpoints/" ".IntelliJIdea14/" ".inputrc" ".homestead/" ".gradle/" ".gnome2/" ".gitconfig" ".ghc/" ".gem/" ".fontconfig/" ".emacs~" ".emacs.d/" ".electron/" ".DS_Store" ".dbshell" ".config/" ".composer/" ".clion10/" ".cache/" ".bash_history" ".atom/" ".android/" "#luhn.c#" "#.emacs#" "../" "./")
+
+ ("/Users/filip/.emacs.d/customizations/" (21982 48141 0 0) "ui.el" "shell-integration.el" "setup-js.el" "setup-clojure.el" "navigation.el" "misc.el" "golang.el" "elisp-editing.el" "editing.el" "../" "./")
+
+ ("/Users/filip/.emacs.d/" (21982 48672 0 0) "themes/" "README.md" "projectile-bookmarks.eld" "places" "init.el" "ido.last" "gitmods/" "elpa/" "customizations/" "backups/" "auto-save-list/" ".smex-items" ".recentf" ".git/" "../" "./")
+
+ ("/Users/filip/workspace/golang/" (21982 48814 0 0) "src/" "SirakProjectBank/" "pkg/" "gotest/" "go_cef/" "go-lang-idea-plugin/" "awesomeWebkit/" ".DS_Store" "../" "./")
+
+ ("/Users/filip/workspace/golang/gotest/" (21982 48814 0 0) "test.go" "../" "./")
+
+ ("/Users/filip/.emacs.d/gitmods/go-mode.el/" (21982 47782 0 0) "README.md" "movement_tests/" "LICENSE" "indentation_tests/" "go-mode.el" "go-mode-autoloads.el" "behaviour_tests/" "AUTHORS" ".gitignore" ".git/" "../" "./")
+
+ ("/Users/filip/.emacs.d/gitmods/" (21982 47780 0 0) "go-mode.el/" "../" "./")
+
+ ("/Users/filip/Documents/Arduino/" (21962 18621 0 0) "libraries/" ".DS_Store" "../" "./")
+
+ ("/Users/filip/Documents/" (21970 59965 0 0) "Velotilt - Documents/" "Touch-linux/" "TI-Nspire CX/" "TI-Nspire/" "rKD77Ex.jpg" "LaTex/" "Laboratory_report.pdf" "LabbSTFT.ggb" "hqdefault.jpg" "G3s5IAS.jpg" "face.jpeg" "dont_kid.png" "cef_binary_3.2321.2044_macosx64/" "cef_binary_3.2171.1979_macosx64/" "Arduino/" "[Strang_G.]_Linear_algebra_and_its_applications(Bookos.org)[1].pdf" ".localized" ".DS_Store" "../" "./")
+
+ ("/Users/" (21690 48621 0 0) "Shared/" "Guest/" "filip/" ".localized" "../" "./")
+
+ ("/Users/filip/.lein/" (21949 8664 0 0) "profiles.clj" "../" "./")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t

@@ -1,0 +1,19 @@
+{
+  "name": "Gameserver",
+  "version": "0.1.0",
+  "description": "A restful server for the game risk",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RISK-game/Gameserver.git"
+  },
+  "author": "Filip Lindvall, Andreas Wallström",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RISK-game/Gameserver/issues"
+  },
+  "homepage": "https://github.com/RISK-game/Gameserver"
+}

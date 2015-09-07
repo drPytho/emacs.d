@@ -1,0 +1,25 @@
+
+;; ----- smex-history -----
+(
+ rename-buffer
+ rename-file
+ magit-commit
+ magit-diff
+ magit-log
+ magit-status
+ list-packages
+)
+
+;; ----- smex-data -----
+(
+ (replace-string . 1)
+ (update-file-autoloads . 1)
+ (list-packages . 2)
+ (magit-status . 2)
+ (magit-log . 1)
+ (magit-diff . 2)
+ (magit-commit . 1)
+ (magit-process . 1)
+ (rename-file . 1)
+ (rename-buffer . 1)
+)
