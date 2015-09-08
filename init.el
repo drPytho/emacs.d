@@ -2,7 +2,7 @@
 ;; Good and userfriendly settings
 ;;;;
 
-
+(require 'cl)
 ;; Get the current users name.
 (defvar current-user
       (getenv
@@ -43,7 +43,9 @@
 ;; Add in your own as you wish:
 (defvar drPytho/packages
   '(magit                      ;Git for emacs
-    ac-slime                   ;Source for AC vv 
+    yasnippet                  ;Snippets for langs
+    rainbow-delimiters         ;Nice brackets
+    ac-slime                   ;Source for AC vv
     auto-complete              ;Auto complete from dicktionary
     autopair                   ;()[]{}
     clojure-mode               ;
@@ -59,7 +61,7 @@
     markdown-mode              ;MD
     marmalade                  ;Extra gue for marmalade
     nodejs-repl                ;The node.js repl
-    nrepl                      ;A repl
+    ;nrepl                      ;A repl
     ;o-blog                    ;For blogposts
     org                        ;Org-mode
     php-mode                   ;PHP goodness
@@ -93,14 +95,7 @@
 ;; Settings
 ;;;;
 
-;; No cursor blinking, it's distracting
-(blink-cursor-mode 0)
-
-;; Show line numbers
-(global-linum-mode)
-
-;; yay rainbows! Color brackets based on depth
-(global-rainbow-delimiters-mode t)
+(setq snippets-folder (expand-file-name "snippets" user-emacs-directory))
 
 ;; Autosave files - I use git so this is good. Read a bit more about it though
 (setq auto-save-default t)
@@ -126,13 +121,9 @@
 ;; No initial scratch message
 ;; Set us in org mode.
 (setq inhibit-splash-screen t
-      initial-scratch-message nil
+      initial-scratch-message "Welcome to Emacs"
       initial-major-mode 'org-mode)
 
-;; Don't want no X
-(scroll-bar-mode -1)
-(tool-bar-mode -1)
-(menu-bar-mode -1)
 
 ;; More sensable region options
 (delete-selection-mode t)
@@ -140,27 +131,6 @@
 
 ;; Share clipboard with the rest of the system.
 (setq x-select-enable-clipboard t)
-
-;; Display settings, not sure about these though...
-(when window-system
-  (setq frame-title-format '(buffer-file-name "%f" ("%b")))
-  (set-face-attribute 'default nil
-                      :family "Inconsolata"
-                      :height 140
-                      :weight 'normal
-                      :width 'normal)
-
-  (when (functionp 'set-fontset-font)
-    (set-fontset-font "fontset-default"
-                      'unicode
-                      (font-spec :family "DejaVu Sans Mono"
-                                 :width 'normal
-                                 :size 12.4
-                                 :weight 'normal))))
-
-(setq-default indicate-empty-lines t)
-(when (not indicate-empty-lines)
-  (toggle-indicate-empty-lines))
 
 ;; Tab indentation
 ;; 4 spaces
@@ -171,15 +141,6 @@
 ;; No backup files. Use git instead
 (setq make-backup-files nil)
 
-;; Answer with 'y' instead of 'yes'
-(defalias 'yes-or-no-p 'y-or-n-p)
-
-;; Show commands fast, vissable bell, Use echo area for y or n
-(setq echo-keystrokes 0.1
-      use-dialog-box nil
-      visible-bell t)
-(show-paren-mode t)
-
 ;; Add a vendor directory
 (defvar drPytho/vendor-dir (expand-file-name "vendor" user-emacs-directory))
 (add-to-list 'load-path drPytho/vendor-dir)
@@ -188,8 +149,6 @@
   (when (file-directory-p project)
     (add-to-list 'load-path project)))
 
-;; Column number mode
-(setq column-number-mode t)
 
 ;; NO TEMP FILES
 (setq backup-directory-alist `((".*" . ,temporary-file-directory)))
@@ -239,12 +198,15 @@
 ;; Utils
 ;;;;
 
+;; Start an emacs server to use for editing
+(server-start)
+
 ;; Sets up exec-path-from shell
 ;; https://github.com/purcell/exec-path-from-shell
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize)
   (exec-path-from-shell-copy-envs
-   '("PATH")))
+   '("PATH" "GOPATH")))
 
 
 ;; When you visit a file, point goes to the last place where it
@@ -269,10 +231,9 @@
 (defvar lisp-power-map (make-keymap))
 (define-minor-mode lisp-power-mode "Fix keybindings; add power."
   :lighter " (power)"
-  :keymap lisp-power-map
-  (paredit-mode t))
-(define-key lisp-power-map [delete] 'paredit-forward-delete)
-(define-key lisp-power-map [backspace] 'paredit-backward-delete)
+  :keymap lisp-power-map)
+;(define-key lisp-power-map [delete] 'paredit-forward-delete)
+;(define-key lisp-power-map [backspace] 'paredit-backward-delete)
 
 (defun drPytho/engage-lisp-power ()
   (lisp-power-mode t))
@@ -340,8 +301,13 @@
 
 ;; Add a directory to our load path so that when you `load` things
 ;; below, Emacs knows where to look for the corresponding file.
-(add-to-list 'load-path "~/.emacs.d/customizations")
+(add-to-list 'load-path "~/.emacs.d/custom")
+(load "ui.el")
+(load "editor.el")
 
+(add-to-list 'load-path "~/.emacs.d/lang")
+(load "org.el")
+(load "golang.el")
 
 ;;;;
 ;; Theme

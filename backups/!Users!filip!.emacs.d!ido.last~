@@ -2,10 +2,13 @@
 
 ;; ----- ido-last-directory-list -----
 (
+ ("/Users/filip/dotfiles/" . "home/")
+ ("/Users/filip/workspace/node/Risk/Gameserver/" . "routes/")
+ ("/Users/filip/workspace/node/Risk/" . "Gameserver/")
  ("/Users/filip/workspace/node/Gameserver/" . "models/")
  ("/Users/filip/workspace/node/RISK/web-server/" . "routes/")
  ("/Users/filip/workspace/node/RISK/" . "web-server/")
- ("/Users/filip/workspace/node/" . "Gameserver/")
+ ("/Users/filip/workspace/node/" . "Risk/")
  ("/Users/filip/Documents/Arduino/libraries/Sha/examples/" . "sha256test/")
  ("/Users/filip/Documents/Arduino/libraries/Sha/" . "examples/")
  ("/Users/filip/.emacs.d/gitmods/" . "go-mode.el/")
@@ -21,7 +24,12 @@
 
 ;; ----- ido-work-directory-list -----
 (
+ "/Users/filip/workspace/node/Risk/Gameserver/"
+ "/Users/filip/workspace/node/Risk/Gameserver/routes/"
+ "/Users/filip/workspace/node/Risk/Gameserver/middleware/"
+ "/Users/filip/workspace/node/Risk/Gameserver/models/"
  "/Users/filip/workspace/node/Gameserver/"
+ "/Users/filip/dotfiles/home/"
  "/Users/filip/workspace/node/Gameserver/models/"
  "/Users/filip/workspace/node/Gameserver/routes/"
  "/Users/filip/workspace/node/RISK/web-server/"
@@ -41,25 +49,41 @@
 
 ;; ----- ido-work-file-list -----
 (
- "README.md"
- "gameState.js"
- "user.js"
- "config.js"
  "app.js"
- "config.json"
  "account.js"
- "LICENSE.md"
- ".gitignore"
- "gulpfile.js"
+ "config.js"
+ "jwt.js"
+ "user.js"
+ "auth.js"
+ "gameState.js"
+ "README.md"
+ "gitconfig.symlink"
+ "config.json"
 )
 
 ;; ----- ido-dir-file-cache -----
 (
+ ("/Users/filip/workspace/node/Risk/Gameserver/" (21992 5842 0 0) "routes/" "README.md" "package.json" "node_modules/" "models/" "middleware/" "logs/" "LICENSE.md" "gulpfile.js" "config.js" "app.js" ".gitignore" ".git/" "../" "./")
+
+ ("/Users/filip/workspace/node/Risk/Gameserver/routes/" (21992 5842 0 0) "account.js" "../" "./")
+
+ ("/Users/filip/workspace/node/Risk/Gameserver/middleware/" (21991 236 0 0) "jwt.js" "../" "./")
+
+ ("/Users/filip/workspace/node/" (21990 57246 0 0) "Risk/" "../" "./")
+
+ ("/Users/filip/workspace/node/Gameserver/" (21990 57102 0 0) "routes/" "README.md" "package.json" "models/" "LICENSE.md" "gulpfile.js" "config.js" "app.js" ".gitignore" ".git/" "../" "./")
+
+ ("/Users/filip/" (21990 57105 0 0) "workspace/" "VirtualBox VMs/" "untitled.txt" "Untitled.ipynb" "tmp/" "Source/" "sda-0.log.0.lck" "sda-0.log.0" "Public/" "Pictures/" "Music/" "Movies/" "MEGAsync Downloads/" "MEGAsync/" "luhn.c" "logga.svg" "Library/" "fonts/" "Downloads/" "dotfiles/" "dot3files/" "Documents/" "Desktop/" "bin/" "AutoPlane/" "Applications/" ".zshrc" ".zsh_history" ".zsh-update" ".zsh/" ".zcompdump-Filip’s MacBook Air-5.0.7" ".zcompdump-Filip’s MacBook Air-5.0.5" ".WebStorm9/" ".WebIde80/" ".vimrc" ".viminfo" ".vim/" ".vagrant.d/" ".v8flags.3.28.73.filip.json" ".Trash/" ".tmux.conf" ".ssh/" ".Scilab/" ".rnd" ".pyvim/" ".PyCharm40/" ".psql_history" ".oracle_jre_usage/" ".oh-my-zsh/" ".octave_hist" ".npm/" ".node-gyp/" ".mongorc.js" ".m2/" ".local/" ".lein/" ".keybase-installer/" ".jssc/" ".ipython/" ".ipynb_checkpoints/" ".IntelliJIdea14/" ".inputrc" ".homestead/" ".gradle/" ".gnupg/" ".gnome2/" ".gitconfig" ".ghc/" ".gem/" ".fontconfig/" ".emacs~" ".emacs.d/" ".electron/" ".DS_Store" ".dbshell" ".config/" ".composer/" ".clion10/" ".cache/" ".bash_history" ".atom/" ".android/" "#luhn.c#" "#.emacs#" "../" "./")
+
+ ("/Users/filip/dotfiles/home/" (21982 46602 0 0) "zshrc.symlink" "zsh.symlink/" "wgetrc.symlink" "vimrc.symlink" "vim.symlink/" "tmux.conf.symlink" "gitconfig.symlink" "functions.symlink" "exports.symlink" "dot.oh-my-zsh/" "curlrc.symlink" "aliases.symlink" ".vimrc.symlink.un~" ".DS_Store" "../" "./")
+
+ ("/Users/filip/dotfiles/" (21875 64877 0 0) "README.md" "osx_spec.sh" "install.sh" "home/" ".git/" ".DS_Store" "../" "./")
+
+ ("/Users/filip/workspace/node/Risk/Gameserver/models/" (21989 62471 0 0) "user.js" "gameState.js" "../" "./")
+
+ ("/Users/filip/workspace/node/Risk/" (21989 63769 0 0) "Website/" "Gameserver/" "Gamelogic/" "../" "./")
+
  ("/Users/filip/workspace/node/Gameserver/models/" (21989 62471 0 0) "user.js" "gameState.js" "../" "./")
-
- ("/Users/filip/workspace/node/Gameserver/" (21989 60766 0 0) "routes/" "README.md" "package.json" "node_modules/" "models/" "logs/" "LICENSE.md" "gulpfile.js" "config.js" "app.js" ".gitignore" ".git/" "../" "./")
-
- ("/Users/filip/workspace/node/" (21989 46558 0 0) "RISK/" "Gameserver/" "../" "./")
 
  ("/Users/filip/workspace/node/RISK/web-server/routes/" (21879 19895 0 0) "account.js" "../" "./")
 
@@ -82,8 +106,6 @@
  ("/Users/filip/Documents/Arduino/libraries/Sha/" (21984 20275 0 0) "sha256.h" "sha256.cpp" "sha1.h" "sha1.cpp" "readme.txt" "keywords.txt" "examples/" "../" "./")
 
  ("/Users/filip/Documents/Arduino/libraries/" (21984 20298 0 0) "Sha/" "readme.txt" "PassworgLibs/" ".DS_Store" "../" "./")
-
- ("/Users/filip/" (21984 20428 0 0) "workspace/" "VirtualBox VMs/" "untitled.txt" "Untitled.ipynb" "tmp/" "Source/" "sda-0.log.0.lck" "sda-0.log.0" "Public/" "Pictures/" "Music/" "Movies/" "MEGAsync Downloads/" "MEGAsync/" "luhn.c" "logga.svg" "Library/" "fonts/" "Downloads/" "dotfiles/" "dot3files/" "Documents/" "Desktop/" "bin/" "AutoPlane/" "Applications/" ".zshrc" ".zsh_history" ".zsh-update" ".zsh/" ".zcompdump-Filip’s MacBook Air-5.0.7" ".zcompdump-Filip’s MacBook Air-5.0.5" ".Xauthority" ".WebStorm9/" ".WebIde80/" ".vimrc" ".viminfo" ".vim/" ".vagrant.d/" ".v8flags.3.28.73.filip.json" ".Trash/" ".tmux.conf" ".ssh/" ".Scilab/" ".rnd" ".pyvim/" ".PyCharm40/" ".psql_history" ".oracle_jre_usage/" ".oh-my-zsh/" ".octave_hist" ".npm/" ".node-gyp/" ".mongorc.js" ".m2/" ".local/" ".lein/" ".jssc/" ".ipython/" ".ipynb_checkpoints/" ".IntelliJIdea14/" ".inputrc" ".homestead/" ".gradle/" ".gnome2/" ".gitconfig" ".ghc/" ".gem/" ".fontconfig/" ".emacs~" ".emacs.d/" ".electron/" ".DS_Store" ".dbshell" ".config/" ".composer/" ".clion10/" ".cache/" ".bash_history" ".atom/" ".android/" "#luhn.c#" "#.emacs#" "../" "./")
 
  ("/Users/filip/.emacs.d/customizations/" (21982 48141 0 0) "ui.el" "shell-integration.el" "setup-js.el" "setup-clojure.el" "navigation.el" "misc.el" "golang.el" "elisp-editing.el" "editing.el" "../" "./")
 

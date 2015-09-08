@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
+ server-start
+ getenv
+ load-file
+ compile
+ eshell
+ shell
  rename-buffer
- rename-file
- magit-commit
- magit-diff
- magit-log
- magit-status
- list-packages
 )
 
 ;; ----- smex-data -----
@@ -22,4 +22,10 @@
  (magit-process . 1)
  (rename-file . 1)
  (rename-buffer . 1)
+ (getenv . 3)
+ (shell . 1)
+ (eshell . 1)
+ (compile . 4)
+ (load-file . 1)
+ (server-start . 2)
 )
